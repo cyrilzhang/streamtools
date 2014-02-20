@@ -9,6 +9,7 @@ from scipy.fftpack import fft
 from scipy.signal import medfilt
 from scipy.linalg import norm
 
+sys.path = ['..'] + sys.path
 from streamtools import *
 
 silence = np.load("data/silence.npy")

@@ -7,6 +7,7 @@ import math
 from subprocess import Popen
 from scipy.fftpack import fft
 
+sys.path = ['..'] + sys.path
 from streamtools import *
 
 clap_threshold = 800
@@ -39,5 +40,5 @@ stream = Stream()
 
 while True:
 	spec = stream.read_spec()
-	# print stream.sketch( spec )
-	classify(spec)
+	print stream.sketch( spec )
+	# classify(spec)
