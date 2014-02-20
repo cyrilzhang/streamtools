@@ -10,8 +10,6 @@ from scipy.fftpack import fft
 sys.path = ['..'] + sys.path
 from streamtools import *
 
-clap_threshold = 800
-
 run = []
 
 # classify notes
