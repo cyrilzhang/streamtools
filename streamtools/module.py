@@ -10,14 +10,15 @@ import scipy.fftpack
 
 class Stream:
 	# constructor
-	def __init__(self, sample_rate=44100, block_size=4096):
+	def __init__(self, source=sys.stdin, sample_rate=44100, block_size=4096):
 		self.sample_rate = sample_rate
 		self.block_size = block_size
 		self.blocks_per_second = float(sample_rate)/block_size
+		self.source = source
 
 	# read mono channel
 	def read_block(self):
-		block = np.fromfile(sys.stdin, dtype=np.int16,count=2*self.block_size)\
+		block = np.fromfile(self.source, dtype=np.int16,count=2*self.block_size)\
 			.reshape(2,self.block_size)
 		return block[0] + block[1]
 
