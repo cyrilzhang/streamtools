@@ -18,8 +18,8 @@ int main(int argc, char** argv) {
 
 	fprintf(stderr, "sconv: streaming with flush rate %d\n", FLUSH_RATE);
 
-	while( fread(buf, 2, 1, stdin) ) {
-		printf("%hd\n", *(short*)buf);
+	while( fread(buf, 4, 1, stdin) ) {
+		printf("%d\n", (int)*(short*)buf + (int)*(short*)(buf+2));
 		
 		++count;
 		if(count == FLUSH_RATE) {
