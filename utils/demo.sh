@@ -1,2 +1,2 @@
 #!/bin/bash
-./utils/stream.sh | python -m streamtools.demo.$1
+./utils/stream.sh | python -m streamtools.demos.$1
