@@ -6,9 +6,7 @@ import time
 import math
 from subprocess import Popen
 from scipy.fftpack import fft
-
-sys.path = ['..'] + sys.path
-from streamtools import *
+from .. import streamtools as st
 
 run = []
 
@@ -34,7 +32,7 @@ def classify(spec):
 				'E', 'F', 'F#', 'G', 'G#', 'A'][int(np.round(note))], cents)
 		run = []
 
-stream = Stream()
+stream = st.Stream()
 
 while True:
 	spec = stream.read_spec()

@@ -1,17 +1,15 @@
-# fft.py: pitch demo
+# speedtest.py: FFT benchmark
 
 import sys
 import numpy as np
 import time
 import math
 from scipy.fftpack import fft
-
-sys.path = ['..'] + sys.path
-from streamtools import *
+from .. import streamtools as st
 
 def time_fft(secs=10):
 	print "Capturing for", secs, "seconds"
-	stream = Stream()
+	stream = st.Stream()
 	nblocks = stream.seconds(secs)
 
 	avg_read = 0 # should be 44100 Hz

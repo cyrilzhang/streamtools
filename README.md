@@ -19,13 +19,15 @@ C/C++ Utilities
 Python Demos
 ------------
 
-`fft.py`: prints a sketchy live spectrogram
+`clap.py`: run a script on double clap
 
-`speedtest.py`: measures FFT performance
+`fft.py`: prints a sketchy live spectrogram
 
 `learn.py`: cluster and classify sounds
 
-`clap.py`: run a script on double clap
+`plot.py`: plot some spectra
+
+`speedtest.py`: measures FFT performance
 
 Scripts
 -------
@@ -36,5 +38,5 @@ Scripts
 
 `utils/stream.sh`: pick based on availability
 
-`demos/demo.sh`: run demo; usage: `./demo.sh fft`
+`utils/demo.sh`: run demo; usage: `utils/demo.sh fft`
 

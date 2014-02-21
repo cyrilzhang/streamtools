@@ -8,9 +8,7 @@ import math
 from scipy.fftpack import fft
 from scipy.signal import medfilt
 from scipy.linalg import norm
-
-sys.path = ['..'] + sys.path
-from streamtools import *
+from .. import streamtools as st
 
 silence = np.load("data/silence.npy")
 
@@ -35,7 +33,7 @@ def record_event(stream, threshold=200000):
 
 def learn_silence(filename, secs=20):
 	print "recording; shut up!"
-	stream = Stream()
+	stream = st.Stream()
 	nblocks = stream.seconds(secs)
 	blocks = np.zeros((nblocks, 4096))
 	for i in range(nblocks):
@@ -51,7 +49,7 @@ def learn_silence(filename, secs=20):
 def learn(filename, tries=20):
 	print "learning: ", filename
 	tot = np.zeros(4096)
-	stream = Stream()
+	stream = st.Stream()
 	for i in range(tries):
 		evt = record_event(stream)
 		evt /= norm(evt)
@@ -70,7 +68,7 @@ def classify():
 	for i,sn in enumerate(sound_names):
 		sounds[i,:] = np.load("data/"+sn+".npy")
 
-	stream = Stream()
+	stream = st.Stream()
 	while True:
 		evt = record_event(stream)
 		evt /= norm(evt)
