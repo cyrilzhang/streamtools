@@ -1,4 +1,4 @@
-# clap.py: double clap to control Spotify
+# clap.py: double clap to execute an arbitrary shell script
 
 import sys
 import numpy as np
@@ -27,7 +27,7 @@ def clap_event():
 
 	if consec_claps == 2:
 		print "dblclap"
-		Popen(['spotify-dbus', 'PlayPause'])
+		Popen(sys.argv[1:])
 		consec_claps = 0
 	else:
 		print "clap"
