@@ -2,3 +2,4 @@
 
 from InStream import *
 from OutStream import *
+from utils import *

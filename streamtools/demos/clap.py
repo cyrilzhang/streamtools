@@ -1,12 +1,10 @@
 # clap.py: double clap to execute an arbitrary shell script
 
 import sys
-import numpy as np
-import sys
 import time
 from subprocess import Popen
-
-import streamtools as st
+import numpy as np
+from streamtools import *
 
 clap_threshold = 1e6
 debounce = 0

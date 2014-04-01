@@ -9,7 +9,7 @@ from scipy.fftpack import fft
 from scipy.signal import medfilt
 from scipy.linalg import norm
 
-import streamtools as st
+from streamtools import *
 
 silence = np.load("data/silence.npy")
 
@@ -34,8 +34,8 @@ def record_event(stream, threshold=200000):
 
 def learn_silence(filename, secs=20):
 	print "recording; shut up!"
-	stream = st.InStream()
-	nblocks = stream.seconds(secs)
+	stream = InStream()
+	nblocks = seconds_to_blocks(stream, secs)
 	blocks = np.zeros((nblocks, 4096))
 	for i in range(nblocks):
 		spec = medfilt( stream.read_spec() )
@@ -50,7 +50,7 @@ def learn_silence(filename, secs=20):
 def learn(filename, tries=20):
 	print "learning: ", filename
 	tot = np.zeros(4096)
-	stream = st.InStream()
+	stream = InStream()
 	for i in range(tries):
 		evt = record_event(stream)
 		evt /= norm(evt)
@@ -69,15 +69,15 @@ def classify():
 	for i,sn in enumerate(sound_names):
 		sounds[i,:] = np.load("data/"+sn+".npy")
 
-	stream = st.InStream()
+	stream = InStream()
 	while True:
 		evt = record_event(stream)
 		evt /= norm(evt)
 
 		csv = np.dot(sounds, evt)
 		print csv
-		print stream.sketch(evt, scale=100)
-		print stream.sketch(sounds[np.argmax(csv)], scale=100)
+		print sketch(stream, evt, scale=100)
+		print sketch(stream, sounds[np.argmax(csv)], scale=100)
 		print sound_names[np.argmax(csv)], "(%d%% sure)" % (np.max(csv)*100)
 
 		for i in range(2):

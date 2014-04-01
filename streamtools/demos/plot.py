@@ -1,15 +1,15 @@
 # plot.py: plot spectra
 
 import sys
-import numpy as np
 import time
 import math
+
+import numpy as np
 import matplotlib.pyplot as plt
 from scipy.fftpack import fft
+from streamtools import *
 
-import streamtools as st
-
-stream = st.InStream(block_size=8192)
+stream = InStream(block_size=8192)
 
 plt.clf()
 plt.yscale('log')

@@ -1,17 +1,17 @@
 # speedtest.py: FFT benchmark
 
 import sys
-import numpy as np
 import time
 import math
-from scipy.fftpack import fft
 
-import streamtools as st
+import numpy as np
+from scipy.fftpack import fft
+from streamtools import *
 
 def time_fft(secs=10):
 	print "Capturing for", secs, "seconds"
-	stream = st.InStream()
-	nblocks = stream.seconds(secs)
+	stream = InStream()
+	nblocks = seconds_to_blocks(stream, secs)
 
 	avg_read = 0 # should be 44100 Hz
 	avg_fft = 0 # should be faster than 44100 Hz
