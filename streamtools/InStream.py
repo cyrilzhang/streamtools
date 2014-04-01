@@ -15,8 +15,10 @@ class InStream:
 	# read mono channel
 	def read_block(self):
 		block = np.fromfile(self.fd, dtype=np.int16, count=self.block_size)
-		if block.size != self.block_size:
+		if block.size == 0:
 			return None
+		if block.size < self.block_size:
+			block.resize(self.block_size)
 		return block
 
 	# magnitude of FFT
