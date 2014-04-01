@@ -8,6 +8,5 @@ from scipy.fftpack import fft
 from streamtools import *
 
 stream = InStream()
-while True:
-	spec = stream.read_spec()
+for spec in iter(stream.read_spec, None):
 	print sketch(stream, spec)

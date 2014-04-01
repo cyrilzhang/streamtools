@@ -11,9 +11,11 @@ to binary streams, like PulseAudio's `pacat` or SoX.
 
 Only 16-bit signed mono is supported for now. Default sample rate is 44100 Hz.
 
-Sample interaction (Ubuntu):
+Sample interactions (Ubuntu):
 
 `utils/pa/mic.sh | utils/demo.sh fft`
+
+`utils/demo.sh synth | utils/pa/speaker.sh`
 
 C/C++ Utilities
 ---------------

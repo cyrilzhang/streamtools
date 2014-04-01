@@ -32,6 +32,5 @@ def classify(spec):
 		run = []
 
 stream = InStream()
-while True:
-	spec = stream.read_spec()
+for spec in iter(stream.read_spec, None):
 	classify(spec)

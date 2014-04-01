@@ -33,8 +33,7 @@ def clap_event():
 
 stream = InStream(block_size=1024)
 
-while True:
-	block = stream.read_block()
+for block in iter(stream.read_block, None):
 	vol = np.mean( np.square(np.float32(block)) )
 	if vol > clap_threshold:
 		if debounce == 0:
