@@ -6,9 +6,10 @@ import time
 import math
 import matplotlib.pyplot as plt
 from scipy.fftpack import fft
-from .. import streamtools as st
 
-stream = st.Stream(block_size=8192)
+import streamtools as st
+
+stream = st.InStream(block_size=8192)
 
 plt.clf()
 plt.yscale('log')

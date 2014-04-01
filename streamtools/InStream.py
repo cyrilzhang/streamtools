@@ -1,14 +1,11 @@
-# streamtools.py: stream tools library
+# input.py: mic input
 
 import sys
 import numpy as np
 import math
-import sys
 import scipy.fftpack
 
-##### STREAM CLASS #####
-
-class Stream:
+class InStream:
 	# constructor
 	def __init__(self, source=sys.stdin, sample_rate=44100, block_size=4096):
 		self.sample_rate = sample_rate

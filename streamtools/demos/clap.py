@@ -5,7 +5,8 @@ import numpy as np
 import sys
 import time
 from subprocess import Popen
-from .. import streamtools as st
+
+import streamtools as st
 
 clap_threshold = 1e6
 debounce = 0
@@ -32,7 +33,7 @@ def clap_event():
 	else:
 		print "clap"
 
-stream = st.Stream(block_size=1024)
+stream = InStream(block_size=1024)
 
 while True:
 	block = stream.read_block()

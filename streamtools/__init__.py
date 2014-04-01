@@ -1,3 +1,4 @@
 # __init__.py of streamtools
 
-from streamtools import *
+from InStream import *
+from OutStream import *
