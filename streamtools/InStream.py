@@ -14,9 +14,7 @@ class InStream:
 
 	# read mono channel
 	def read_block(self):
-		block = np.fromfile(self.fd, dtype=np.int16,count=2*self.block_size)\
-			.reshape(2,self.block_size)
-		return block[0] + block[1]
+		return np.fromfile(self.fd, dtype=np.int16,count=self.block_size)
 
 	# magnitude of FFT
 	def read_spec(self):

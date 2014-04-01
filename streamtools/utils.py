@@ -16,7 +16,7 @@ def fft_to_hz(stream, ind):
 	return float(ind) * stream.sample_rate / stream.block_size
 
 # sketchy ASCII art depiction of fft
-def sketch(stream, spec, scale=1.0/8000, minfreq=200, maxfreq=2000, width=80):
+def sketch(stream, spec, scale=1.0/4000, minfreq=400, maxfreq=4000, width=80):
 	ret = ''
 	asc = " `.~:<=tIYAXWH#M"
 	for f in np.logspace(np.log10(minfreq), np.log10(maxfreq), num=width):

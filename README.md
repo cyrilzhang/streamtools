@@ -9,7 +9,7 @@ It lets you manipulate audio data as numpy arrays,
 You'll need something that can pipe microphone input/speaker output
 to binary streams, like PulseAudio's `pacat` or SoX.
 
-Format for now is 16 bit stereo. Default sample rate is 44100 Hz.
+Only 16-bit signed mono is supported for now. Default sample rate is 44100 Hz.
 
 Sample interaction (Ubuntu):
 
@@ -26,6 +26,8 @@ Python Demos
 `clap.py`: run a script on double clap
 
 `fft.py`: prints a sketchy live spectrogram
+
+`pitch.py`: classifies pitches
 
 `learn.py`: cluster and classify sounds
 

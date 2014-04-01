@@ -8,4 +8,4 @@ if [ $# -ne 0 ]; then
 	DEVICE=$1
 fi
 
-pacat --record --latency-msec=1 --device=$DEVICE
+pacat --record --channels=1 --channel-map=mono --latency-msec=1 --device=$DEVICE
