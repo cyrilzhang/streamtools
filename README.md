@@ -11,6 +11,10 @@ to binary streams, like PulseAudio's `pacat` or SoX.
 
 Format for now is 16 bit stereo. Default sample rate is 44100 Hz.
 
+Sample interaction (Ubuntu):
+
+`utils/pa/mic.sh | utils/demo.sh fft`
+
 C/C++ Utilities
 ---------------
 
@@ -28,15 +32,3 @@ Python Demos
 `plot.py`: plot some spectra
 
 `speedtest.py`: measures FFT performance
-
-Scripts
--------
-
-`utils/pastream.sh`: PulseAudio stream
-
-`utils/soxstream.sh`: SoX stream
-
-`utils/stream.sh`: pick based on availability
-
-`utils/demo.sh`: run demo; usage: `utils/demo.sh fft`
-
