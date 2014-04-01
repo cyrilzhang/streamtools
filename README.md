@@ -4,12 +4,12 @@ Cyril's Stream Tools
 Overview
 --------
 
-These tools take raw PCM data from stdin, and do fun stuff with it.
-Requires numpy.
+This is a wrapper for raw PCM audio streams, piped through stdin/stdout.
+It lets you manipulate audio data as numpy arrays,
+You'll need something that can pipe microphone input/speaker output
+to binary streams, like PulseAudio's `pacat` or SoX.
 
-Format: 16 bit stereo, 44100 Hz
-
-Works with PulseAudio (comes with Ubuntu) or SoX (`brew install sox`).
+Format for now is 16 bit stereo. Default sample rate is 44100 Hz.
 
 C/C++ Utilities
 ---------------
