@@ -6,7 +6,8 @@ from streamtools import *
 
 out = OutStream()
 
-x = np.linspace(0,1,44100)
-y = 4000 * np.sin(x * 2*math.pi * 880.0)
+s = 5
+x = np.linspace(0,s*1,s*44100)
+y = 400 * np.sin(x * 2*np.pi * 880 + 20*np.sin(x * 2*np.pi) )
 
-out.write_block(y[0:4097])
+out.write_block(y)
